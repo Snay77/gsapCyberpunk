@@ -1,9 +1,16 @@
 {
-  "scripts": {
-    "compile": "sass style.scss style.css --watch"
-  },
   "dependencies": {
     "gsap": "^3.12.5",
     "sass": "^1.74.1"
-  }
+  },
+  "name": "gsapcyberpunk",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "compile": "sass css/main.scss css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
