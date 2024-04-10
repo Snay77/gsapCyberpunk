@@ -17,19 +17,20 @@ body{
 
 ::-webkit-scrollbar {
     width: 10px;
+
+    &-thumb {
+        background-color: $yellow;
+
+        &:hover {
+            background-color: $red;
+        }
+    }
+
+    &-track {
+        background-color: black;
+    }
 }
 
-::-webkit-scrollbar-thumb {
-    background-color: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #f0f0f0;
-}
 
 /* Loader */
 .loader {
