@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="script.js">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Iceland&display=swap">
     <title>Document</title>
 </head>
 <body>
     
+    <div class="loader">
+        <div class="bar"></div>
+    </div>
+
     <video autoplay muted loop id="landing-video">
         <source src="media/Cyberpunk 2077 Wallpaper Engine.mp4" type="video/mp4">
     </video>
@@ -41,5 +46,24 @@
     <div id="caracter-Takemura" class="espacement">
         <h2>Takemura</h2>
     </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.to(".bar", {
+                duration: 2, // Durée de l'animation de la barre de chargement
+                width: "100%", // Largeur finale de la barre de chargement
+                ease: "power1.inOut", // Courbe d'animation
+                onComplete: function() {
+                    // Une fois que l'animation de la barre de chargement est terminée
+                    // Faire disparaître la barre de chargement après 2 secondes supplémentaires
+                    setTimeout(function() {
+                        gsap.to(".loader", { duration: 0, opacity: 0, display: "none" }); // Disparition de la barre de chargement
+                        gsap.to(".content", { duration: 0, opacity: 1, display: "block" }); // Apparition du contenu principal
+                    }, 0);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
