@@ -29,6 +29,30 @@ body {
 
 /* Loader */
 .loader {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loader .loader-element {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: right;
+}
+
+.loader p {
+  color: #FE0000;
+  font-size: 3em;
+  margin-bottom: 0.2em;
+}
+
+.loader img {
+  max-width: 50%;
+}
+
+.loader-bar {
   width: 40%;
   height: 6em;
   background-color: #1A1A1A;
