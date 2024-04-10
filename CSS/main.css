@@ -1,8 +1,11 @@
 @charset "UTF-8";
-body, html {
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: #1B080A;
+  z-index: -2;
+  color: white;
 }
 
 .espacement {
@@ -29,19 +32,21 @@ body, html {
 
 /* Loader */
 .loader {
-  width: 50%;
-  height: 10px;
-  background-color: #f0f0f0;
+  width: 40%;
+  height: 6em;
+  background-color: #1B080A;
   position: fixed;
   top: 50%;
-  left: 25%;
-  z-index: 9999;
+  left: 30%;
+  z-index: 1;
+  border: #FE0000 solid 5px;
+  padding: 5px;
 }
 
 .bar {
   width: 0%;
   height: 100%;
-  background-color: #007bff;
+  background-color: #FE0000;
 }
 
 #content {
