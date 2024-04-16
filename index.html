@@ -35,7 +35,7 @@
             <main>
                 <ul class='slider'>
                     <li class='item'
-                        style="background-image: url('https://cdn.mos.cms.futurecdn.net/dP3N4qnEZ4tCTCLq59iysd.jpg')">
+                        style="background-image: url('media/CityCenter.png')">
                         <div class='case'>
                             <h2 class='title'>"Lossless Youths"</h2>
                             <p class='description'> Lorem ipsum, dolor sit amet consectetur
@@ -104,11 +104,20 @@
             </main>
         </section>
 
-        <div id="caracter-v" class="espacement">
+        <div class="caracterV">
             <h2>V</h2>
+            <img src="media/VH_pp.png" alt="" class="invisible VH">
+            <img src="media/VF_pp.png" alt="" class="invisible VF">
         </div>
 
-        <div id="caracter-Jackie" class="espacement">
+        <div class="caracterV">
+            <h2>V</h2>
+            <img src="media/VH_pp.png" alt="" class="invisible">
+            <p>Salut c'est Jhonny ah nan en fait c'est V</p>
+        </div>
+
+
+        <div id="caracter-Jackie" class="">
             <h2>Jackie</h2>
         </div>
 
@@ -123,6 +132,7 @@
         <div id="caracter-Takemura" class="espacement">
             <h2>Takemura</h2>
         </div>
+    </div>
 
     </div>
 
@@ -135,7 +145,7 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             gsap.to(".bar", {
-                duration: 2,
+                duration: 0,
                 width: "100%",
                 ease: "power1.inOut",
                 onComplete: function () {
@@ -158,6 +168,36 @@
         }
 
         document.addEventListener('click', activate, false);
+
+        // V
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageVH = document.querySelector(".VH");
+            const imageVF = document.querySelector(".VF");
+
+            const tl = gsap.timeline({ paused: true });
+
+            tl.set(imageVH, { x: "50%" });
+            tl.set(imageVF, { x: "-50%" });
+            tl.to([imageVH, imageVF], {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageVH.classList.remove('invisible');
+                    imageVF.classList.remove('invisible');
+                }
+            });
+
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".caracterV").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageVH.classList.remove('invisible');
+                    imageVF.classList.remove('invisible');
+                }
+            });
+        });
+
     </script>
 </body>
 
