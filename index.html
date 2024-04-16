@@ -22,12 +22,30 @@
         </div>
     </div>
 
+    <script>
+        // Loader
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.to(".bar", {
+                duration: 0,
+                width: "100%",
+                ease: "power1.inOut",
+                onComplete: function () {
+                    setTimeout(function () {
+                        gsap.to(".loader", { duration: 0, opacity: 0, display: "none" });
+                        gsap.to("#content", { duration: 1, opacity: 1, display: "block" });
+                    }, 0);
+                }
+            });
+        });
+    </script>
+
     <div id="content">
         <section id="start">
             <video autoplay muted loop id="landing-video">
                 <source src="media/Cyberpunk 2077 Wallpaper Engine.mp4" type="video/mp4">
             </video>
-            
+
             <img id="logo" src="media/Logo.png" alt="">
 
             <a href="#carousel" id="button-start">
@@ -40,8 +58,7 @@
         <section class="carousel">
             <main>
                 <ul class='slider'>
-                    <li class='item'
-                        style="background-image: url('media/CityCenter.png')">
+                    <li class='item' style="background-image: url('media/CityCenter.png')">
                         <div class='case'>
                             <h2 class='title'>"Lossless Youths"</h2>
                             <p class='description'> Lorem ipsum, dolor sit amet consectetur
@@ -110,22 +127,123 @@
             </main>
         </section>
 
+        <script>
+            // Carousel
+
+            const slider = document.querySelector('.slider');
+
+            function activate(e) {
+                const items = document.querySelectorAll('.item');
+                e.target.matches('.next') && slider.append(items[0])
+                e.target.matches('.prev') && slider.prepend(items[items.length - 1]);
+            }
+
+            document.addEventListener('click', activate, false);
+        </script>
+
         <div class="caracterV">
             <h2>V</h2>
             <img src="media/VH_pp.png" alt="" class="invisible VH">
             <img src="media/VF_pp.png" alt="" class="invisible VF">
         </div>
 
-        <div class="caracterV">
-            <h2>V</h2>
-            <img src="media/VH_pp.png" alt="" class="invisible">
-            <p>Salut c'est Jhonny ah nan en fait c'est V</p>
+        <script>
+            // V
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageVH = document.querySelector(".VH");
+                const imageVF = document.querySelector(".VF");
+
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageVH, { x: "50%" });
+                tl.set(imageVF, { x: "-50%" });
+                tl.to([imageVH, imageVF], {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageVH.classList.remove('invisible');
+                        imageVF.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".caracterV").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageVH.classList.remove('invisible');
+                        imageVF.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterleft C1" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Johnny Silverhand</h2>
+            <img src="media/Johnny_pp.png" alt="" class="invisible johnny">
+            <p>
+                Il semble que devenir une légende du rock sans les excès habituels - sexe, drogues, dépression, problèmes juridiques et relations toxiques - soit possible. Johnny Silverhand l'a fait à sa manière classique. En tant que leader de Samurai, il était un visionnaire charismatique, un rebelle avec une cause authentique, et un ennemi farouche des corporations, en particulier Arasaka. Il a créé des succès emblématiques comme "Chippin' In" et "Never Fade Away". Bien qu'il soit décédé lors de l'attaque de la tour Arasaka, son esprit rebelle continue de vivre à travers la biopuce Relic, actuellement hébergée dans le cerveau de V. Cependant, pour Johnny, qui est un narcissique égocentrique, cette situation est un véritable enfer, bien loin de l'agréable alternative qu'est la prison du cyberespace.</p>
         </div>
 
+        <script>
+            // Jhonny
 
-        <div id="caracter-Jackie" class="">
-            <h2>Jackie</h2>
-        </div>
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageJ = document.querySelector(".johnny");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageJ, { x: "250%" });
+                tl.to(imageJ, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageJ.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C1").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageJ.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+
+<div class="caracterright C2" style="background-image: url('media/Wallpaper1.jpg');">
+    <h2>Jackie Welles</h2>
+    <img src="media/Johnny_pp.png" alt="" class="invisible johnny">
+    <p>
+        Fils d'Heywood et fier de l'être, Jackie est également le fils de Mama Welles, ce dont il est encore plus fier. Il est têtu, et quand il veut quelque chose, il n'arrête pas (et n'arrête pas d'en parler) tant qu'il ne l'a pas. Jackie a toujours voulu beaucoup de choses, peut-être un peu trop. À l'adolescence, il a rejoint le gang des Valentinos, pour finalement les quitter en prenant conscience de son véritable potentiel. Pendant des années, il s'est démené dans le monde impitoyable des mercs; forcément, quand on veut s'asseoir à la table des grands, il faut commencer par être pris au sérieux. Dans la vie, Jackie a toujours eu pour but de devenir une légende à l'Afterlife et de ramasser un paquet d'eddies au passage.
+    </div>
+
+<script>
+    // Jhonny
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const imageJ = document.querySelector(".johnny");
+        const tl = gsap.timeline({ paused: true });
+
+        tl.set(imageJ, { x: "250%" });
+        tl.to(imageJ, {
+            duration: 1.75, x: 0, onStart: function () {
+                imageJ.classList.remove('invisible');
+            }
+        });
+
+        window.addEventListener("scroll", function () {
+            const caracterVPosition = document.querySelector(".C1").getBoundingClientRect();
+            const triggerPosition = window.innerHeight * 0.05;
+
+            if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                tl.play();
+                imageJ.classList.remove('invisible');
+            }
+        });
+    });
+</script>
 
         <div id="caracter-Judy" class="espacement">
             <h2>Judy</h2>
@@ -145,66 +263,6 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script>
-
-        // Loader
-
-        document.addEventListener("DOMContentLoaded", function () {
-            gsap.to(".bar", {
-                duration: 0,
-                width: "100%",
-                ease: "power1.inOut",
-                onComplete: function () {
-                    setTimeout(function () {
-                        gsap.to(".loader", { duration: 0, opacity: 0, display: "none" });
-                        gsap.to("#content", { duration: 1, opacity: 1, display: "block" });
-                    }, 0);
-                }
-            });
-        });
-
-        // Carousel
-
-        const slider = document.querySelector('.slider');
-
-        function activate(e) {
-            const items = document.querySelectorAll('.item');
-            e.target.matches('.next') && slider.append(items[0])
-            e.target.matches('.prev') && slider.prepend(items[items.length - 1]);
-        }
-
-        document.addEventListener('click', activate, false);
-
-        // V
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const imageVH = document.querySelector(".VH");
-            const imageVF = document.querySelector(".VF");
-
-            const tl = gsap.timeline({ paused: true });
-
-            tl.set(imageVH, { x: "50%" });
-            tl.set(imageVF, { x: "-50%" });
-            tl.to([imageVH, imageVF], {
-                duration: 1.75, x: 0, onStart: function () {
-                    imageVH.classList.remove('invisible');
-                    imageVF.classList.remove('invisible');
-                }
-            });
-
-            window.addEventListener("scroll", function () {
-                const caracterVPosition = document.querySelector(".caracterV").getBoundingClientRect();
-                const triggerPosition = window.innerHeight * 0.05;
-
-                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                    tl.play();
-                    imageVH.classList.remove('invisible');
-                    imageVF.classList.remove('invisible');
-                }
-            });
-        });
-
-    </script>
 </body>
 
 </html>
