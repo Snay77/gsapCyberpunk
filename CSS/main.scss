@@ -101,6 +101,34 @@ body {
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
+  animation: glitch 5s infinite steps(1);
+}
+
+@keyframes glitch {
+
+  0%,
+  100% {
+    content: url('../media/logo.png');
+    background-size: cover;
+  }
+
+  92.5% {
+    content: url('../media/logo_glitch1.png');
+    background-size: cover;
+    opacity: 1;
+  }
+
+  95% {
+    content: url('../media/logo_glitch2.png');
+    background-size: cover;
+    opacity: 0;
+  }
+
+  97.5% {
+    content: url('../media/logo_glitch3.png');
+    background-size: cover;
+    opacity: 1;
+  }
 }
 
 #button-start img {
