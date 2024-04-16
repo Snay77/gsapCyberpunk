@@ -182,7 +182,14 @@
             <h2>Johnny Silverhand</h2>
             <img src="media/Johnny_pp.png" alt="" class="invisible johnny">
             <p>
-                Il semble que devenir une légende du rock sans les excès habituels - sexe, drogues, dépression, problèmes juridiques et relations toxiques - soit possible. Johnny Silverhand l'a fait à sa manière classique. En tant que leader de Samurai, il était un visionnaire charismatique, un rebelle avec une cause authentique, et un ennemi farouche des corporations, en particulier Arasaka. Il a créé des succès emblématiques comme "Chippin' In" et "Never Fade Away". Bien qu'il soit décédé lors de l'attaque de la tour Arasaka, son esprit rebelle continue de vivre à travers la biopuce Relic, actuellement hébergée dans le cerveau de V. Cependant, pour Johnny, qui est un narcissique égocentrique, cette situation est un véritable enfer, bien loin de l'agréable alternative qu'est la prison du cyberespace.</p>
+                Il semble que devenir une légende du rock sans les excès habituels - sexe, drogues, dépression,
+                problèmes juridiques et relations toxiques - soit possible. Johnny Silverhand l'a fait à sa manière
+                classique. En tant que leader de Samurai, il était un visionnaire charismatique, un rebelle avec une
+                cause authentique, et un ennemi farouche des corporations, en particulier Arasaka. Il a créé des succès
+                emblématiques comme "Chippin' In" et "Never Fade Away". Bien qu'il soit décédé lors de l'attaque de la
+                tour Arasaka, son esprit rebelle continue de vivre à travers la biopuce Relic, actuellement hébergée
+                dans le cerveau de V. Cependant, pour Johnny, qui est un narcissique égocentrique, cette situation est
+                un véritable enfer, bien loin de l'agréable alternative qu'est la prison du cyberespace.</p>
         </div>
 
         <script>
@@ -212,46 +219,123 @@
         </script>
 
 
-<div class="caracterright C2" style="background-image: url('media/Wallpaper1.jpg');">
-    <h2>Jackie Welles</h2>
-    <img src="media/jackie_pp.png" alt="" class="invisible jackie">
-    <p>
-        Fils d'Heywood et fier de l'être, Jackie est également le fils de Mama Welles, ce dont il est encore plus fier. Il est têtu, et quand il veut quelque chose, il n'arrête pas (et n'arrête pas d'en parler) tant qu'il ne l'a pas. Jackie a toujours voulu beaucoup de choses, peut-être un peu trop. À l'adolescence, il a rejoint le gang des Valentinos, pour finalement les quitter en prenant conscience de son véritable potentiel. Pendant des années, il s'est démené dans le monde impitoyable des mercs; forcément, quand on veut s'asseoir à la table des grands, il faut commencer par être pris au sérieux. Dans la vie, Jackie a toujours eu pour but de devenir une légende à l'Afterlife et de ramasser un paquet d'eddies au passage.
-    </div>
-
-<script>
-    // Jackie Welles
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const imageJ = document.querySelector(".jackie");
-        const tl = gsap.timeline({ paused: true });
-
-        tl.set(imageJ, { x: "-250%" });
-        tl.to(imageJ, {
-            duration: 1.75, x: 0, onStart: function () {
-                imageJ.classList.remove('invisible');
-            }
-        });
-
-        window.addEventListener("scroll", function () {
-            const caracterVPosition = document.querySelector(".C2").getBoundingClientRect();
-            const triggerPosition = window.innerHeight * 0.05;
-
-            if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                tl.play();
-                imageJ.classList.remove('invisible');
-            }
-        });
-    });
-</script>
-
-        <div id="caracter-Judy" class="espacement">
-            <h2>Judy</h2>
+        <div class="caracterright C2" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Jackie Welles</h2>
+            <img src="media/jackie_pp.png" alt="" class="invisible jackie">
+            <p>
+                Fils d'Heywood et fier de l'être, Jackie est également le fils de Mama Welles, ce dont il est encore
+                plus fier. Il est têtu, et quand il veut quelque chose, il n'arrête pas (et n'arrête pas d'en parler)
+                tant qu'il ne l'a pas. Jackie a toujours voulu beaucoup de choses, peut-être un peu trop. À
+                l'adolescence, il a rejoint le gang des Valentinos, pour finalement les quitter en prenant conscience de
+                son véritable potentiel. Pendant des années, il s'est démené dans le monde impitoyable des mercs;
+                forcément, quand on veut s'asseoir à la table des grands, il faut commencer par être pris au sérieux.
+                Dans la vie, Jackie a toujours eu pour but de devenir une légende à l'Afterlife et de ramasser un paquet
+                d'eddies au passage.
         </div>
 
-        <div id="caracter-Panam" class="espacement">
-            <h2>Panam</h2>
+        <script>
+            // Jackie Welles
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageJ = document.querySelector(".jackie");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageJ, { x: "-250%" });
+                tl.to(imageJ, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageJ.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C2").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageJ.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterleft C3" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Judy Alvarez</h2>
+            <img src="media/judy_pp.png" alt="" class="invisible judy">
+            <p>
+                L'une des éditrices de danse sensorielle les plus talentueuses du marché, doublée d'une techie
+                compétente. Si elle le voulait, elle pourrait se faire embaucher par n'importe quel studio corpo de
+                divertissement et se remplir les poches, mais Judy tient trop à son indépendance pour ça, et rejette
+                toutes les offres qu'elle reçoit. Son esprit anarchiste l'a conduite vers les Mox, dans l'espoir qu'ils
+                pourraient aider à améliorer la vie des citoyens de Night City. Son plus gros point faible, qui lui
+                cause toujours des problèmes, est son incapacité à se taire face à l'injustice. Pour certains, c'est
+                aussi sa plus grande vertu.
         </div>
+
+        <script>
+            // Judy Alvarez
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageJ = document.querySelector(".judy");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageJ, { x: "250%" });
+                tl.to(imageJ, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageJ.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C3").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageJ.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterright C4" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Viktor Vektor</h2>
+            <img src="media/viktor_pp.png" alt="" class="invisible viktor">
+            <p>
+                Quand on veut du chrome de qualité, on va chez Vik. Les concurrents ont peut-être un intérieur tenant
+                autant du vaisseau spatial que de la chambre zen, mais sa clinique de charcudoc va à l'essentiel et ne
+                bombarde pas les clients de logos corpos. Si le client est sympa, il peut même lui offrir une bière avec
+                son anesthésie avant de commencer à le charcuter. Viktor Vektor est en fait une légende vivante de Night
+                City, ce qu'il s'efforce de faire oublier aux gens depuis des années. C'est un homme de principes, un
+                vieux dur à cuire de la rue qui s'est forgé un honneur et une morale au club de boxe des Night City
+                Devils.
+        </div>
+
+        <script>
+            // Jackie Welles
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageV = document.querySelector(".viktor");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageV, { x: "-250%" });
+                tl.to(imageV, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageV.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C4").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageV.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
 
         <div id="caracter-Takemura" class="espacement">
             <h2>Takemura</h2>
