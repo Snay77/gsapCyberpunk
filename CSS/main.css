@@ -370,6 +370,23 @@ main {
     opacity: 0;
   }
 }
+/* Image barre droite */
+.images-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  right: 20px;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.image {
+  width: 20px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 /* V */
 .invisible {
   display: none;
