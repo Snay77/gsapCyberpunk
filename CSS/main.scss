@@ -299,23 +299,15 @@ main {
     font-family: $font;
     color: $yellow;
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 2.5em;
   }
 
   & .description {
     margin: 1rem 0 1.5rem;
-    font-size: 1rem;
+    font-size: 1.5em;
+    line-height: 1.1em;
     font-family: $font;
-  }
-
-  & button {
-    width: fit-content;
-    background-color: rgba(0, 0, 0, 0.1);
-    color: white;
-    border: 2px solid white;
-    border-radius: 0.25rem;
-    padding: 0.75rem;
-    cursor: pointer;
+    padding-bottom: 14em;
   }
 }
 
@@ -524,10 +516,17 @@ main {
   p {
     position: absolute;
     top: 50%;
-    right: 20px;
+    right: 5em;
     transform: translateY(-50%);
-    color: white;
-    max-width: 40%;
+    color: whitesmoke;
+    max-width: 40em;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    padding: 2em;
+    padding-bottom: 7em;
+    background-image: url('../media/frame2.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
   }
 }
 
@@ -560,9 +559,16 @@ main {
     p {
       position: absolute;
       top: 50%;
-      left: 20px;
+      left: 5em;
       transform: translateY(-50%);
-      color: white;
-      max-width: 40%;
+      color: whitesmoke;
+      max-width: 40em;
+      font-size: 1.5em;
+      line-height: 1.5em;
+      padding: 2em;
+      padding-bottom: 5em;
+      background-image: url('../media/frame2flip.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
     }
 }
