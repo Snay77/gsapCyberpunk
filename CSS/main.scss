@@ -236,16 +236,22 @@ main {
   text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
   opacity: 0;
   display: none;
+  padding: 2em;
+  background-image: url('../media/frame.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
 
   & .title {
-    font-family: 'arial-black';
+    font-family: $font;
+    color: $yellow;
     text-transform: uppercase;
+    font-size: 2rem;
   }
 
   & .description {
-    line-height: 1.7;
     margin: 1rem 0 1.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    font-family: $font;
   }
 
   & button {
