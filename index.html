@@ -214,19 +214,19 @@
 
 <div class="caracterright C2" style="background-image: url('media/Wallpaper1.jpg');">
     <h2>Jackie Welles</h2>
-    <img src="media/Johnny_pp.png" alt="" class="invisible johnny">
+    <img src="media/jackie_pp.png" alt="" class="invisible jackie">
     <p>
         Fils d'Heywood et fier de l'être, Jackie est également le fils de Mama Welles, ce dont il est encore plus fier. Il est têtu, et quand il veut quelque chose, il n'arrête pas (et n'arrête pas d'en parler) tant qu'il ne l'a pas. Jackie a toujours voulu beaucoup de choses, peut-être un peu trop. À l'adolescence, il a rejoint le gang des Valentinos, pour finalement les quitter en prenant conscience de son véritable potentiel. Pendant des années, il s'est démené dans le monde impitoyable des mercs; forcément, quand on veut s'asseoir à la table des grands, il faut commencer par être pris au sérieux. Dans la vie, Jackie a toujours eu pour but de devenir une légende à l'Afterlife et de ramasser un paquet d'eddies au passage.
     </div>
 
 <script>
-    // Jhonny
+    // Jackie Welles
 
     document.addEventListener("DOMContentLoaded", function () {
-        const imageJ = document.querySelector(".johnny");
+        const imageJ = document.querySelector(".jackie");
         const tl = gsap.timeline({ paused: true });
 
-        tl.set(imageJ, { x: "250%" });
+        tl.set(imageJ, { x: "-250%" });
         tl.to(imageJ, {
             duration: 1.75, x: 0, onStart: function () {
                 imageJ.classList.remove('invisible');
@@ -234,7 +234,7 @@
         });
 
         window.addEventListener("scroll", function () {
-            const caracterVPosition = document.querySelector(".C1").getBoundingClientRect();
+            const caracterVPosition = document.querySelector(".C2").getBoundingClientRect();
             const triggerPosition = window.innerHeight * 0.05;
 
             if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {

@@ -367,4 +367,37 @@ main {
   max-width: 40%;
 }
 
+.caracterright {
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.caracterright h2 {
+  position: absolute;
+  top: 50px;
+  right: 50%;
+  font-size: 4em;
+}
+
+.caracterright img {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  max-width: 40%;
+  height: auto;
+}
+
+.caracterright p {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: white;
+  max-width: 40%;
+}
+
 /*# sourceMappingURL=main.css.map */
