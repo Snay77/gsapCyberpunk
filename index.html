@@ -189,7 +189,8 @@
                 emblématiques comme "Chippin' In" et "Never Fade Away". Bien qu'il soit décédé lors de l'attaque de la
                 tour Arasaka, son esprit rebelle continue de vivre à travers la biopuce Relic, actuellement hébergée
                 dans le cerveau de V. Cependant, pour Johnny, qui est un narcissique égocentrique, cette situation est
-                un véritable enfer, bien loin de l'agréable alternative qu'est la prison du cyberespace.</p>
+                un véritable enfer, bien loin de l'agréable alternative qu'est la prison du cyberespace.
+            </p>
         </div>
 
         <script>
@@ -231,6 +232,7 @@
                 forcément, quand on veut s'asseoir à la table des grands, il faut commencer par être pris au sérieux.
                 Dans la vie, Jackie a toujours eu pour but de devenir une légende à l'Afterlife et de ramasser un paquet
                 d'eddies au passage.
+            </p>
         </div>
 
         <script>
@@ -270,6 +272,7 @@
                 pourraient aider à améliorer la vie des citoyens de Night City. Son plus gros point faible, qui lui
                 cause toujours des problèmes, est son incapacité à se taire face à l'injustice. Pour certains, c'est
                 aussi sa plus grande vertu.
+            </p>
         </div>
 
         <script>
@@ -309,6 +312,7 @@
                 City, ce qu'il s'efforce de faire oublier aux gens depuis des années. C'est un homme de principes, un
                 vieux dur à cuire de la rue qui s'est forgé un honneur et une morale au club de boxe des Night City
                 Devils.
+            </p>
         </div>
 
         <script>
@@ -337,9 +341,45 @@
             });
         </script>
 
-        <div id="caracter-Takemura" class="espacement">
-            <h2>Takemura</h2>
+        <div class="caracterleft C5" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Panam Palmer</h2>
+            <img src="media/panam_pp.png" alt="" class="invisible panam">
+            <p>
+                Panam est une nomade, même s'il serait plus juste aujourd'hui de dire « ex-nomade ». Suite à un
+                désaccord avec Saul, le chef de la famille, elle a quitté la nation Aldecaldos pour aller tenter sa
+                chance comme merc à Night City. Elle se trouve à un carrefour de son existence: d'un côté, elle sait
+                qu'elle doit changer de vie, maintenant ou jamais; de l'autre, couper les ponts avec la famille nomade
+                et tous ses amis lui semble un peu excessif. En plus de ça, Night City n'est pas tendre avec les nomades
+                et laisse rarement le temps de s'adapter aux gens comme Panam, en proie à un conflit interne et rêvant
+                d'un avenir meilleur.
+            </p>
         </div>
+
+        <script>
+            // Judy Alvarez
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageP = document.querySelector(".panam");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageP, { x: "250%" });
+                tl.to(imageP, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageP.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C5").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageP.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
     </div>
 
     </div>
