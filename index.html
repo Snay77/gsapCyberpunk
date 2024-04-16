@@ -154,19 +154,51 @@
         </script>
 
         <div class="images-container">
-            <img src="media/BlueBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
-            <img src="media/RedBox.png" alt="" class="image">
+            <img src="media/BlueBox.png" alt="" class="image" title="V" data-link="#v">
+            <img src="media/RedBox.png" alt="" class="image" title="Johnny Silverhand" data-link="#johnny">
+            <img src="media/RedBox.png" alt="" class="image" title="Jackie Welles" data-link="#jackie">
+            <img src="media/RedBox.png" alt="" class="image" title="Judy Alvarez" data-link="#judy">
+            <img src="media/RedBox.png" alt="" class="image" title="Viktor Vektor" data-link="#viktor">
+            <img src="media/RedBox.png" alt="" class="image" title="Panam Palmer" data-link="#panam">
+            <img src="media/RedBox.png" alt="" class="image" title="Kerry Eurodyne" data-link="#kerry">
+            <img src="media/RedBox.png" alt="" class="image" title="River Ward" data-link="#river">
+            <img src="media/RedBox.png" alt="" class="image" title="Goro Takemura" data-link="#goro">
+            <img src="media/RedBox.png" alt="" class="image" title="Alt Cunningham" data-link="#alt">
+            <img src="media/RedBox.png" alt="" class="image" title="Delamain" data-link="#delamain">
+            <img src="media/RedBox.png" alt="" class="image" title="Rogue" data-link="#rogue">
         </div>
+
+        <script>
+            var images = document.querySelectorAll('.image');
+
+            images.forEach(function (image) {
+                image.addEventListener('mouseover', function (event) {
+                    var name = image.getAttribute('title');
+                    var link = image.getAttribute('data-link');
+                    var nameElement = document.createElement('span');
+                    nameElement.textContent = name;
+                    nameElement.classList.add('image-name');
+                    nameElement.style.position = 'absolute';
+                    nameElement.style.left = event.pageX + 'px';
+                    nameElement.style.top = event.pageY + 'px';
+                    document.body.appendChild(nameElement);
+                });
+
+                image.addEventListener('mouseleave', function () {
+                    var nameElement = document.querySelector('.image-name');
+                    if (nameElement) {
+                        nameElement.remove();
+                    }
+                });
+
+                image.addEventListener('click', function () {
+                    var link = image.getAttribute('data-link');
+                    if (link) {
+                        window.location.href = link;
+                    }
+                });
+            });
+        </script>
 
         <script>
             window.addEventListener('scroll', function () {
@@ -222,7 +254,7 @@
             });
         </script>
 
-        <div class="section caracterV">
+        <div class="section caracterV" id="v">
             <h2>V</h2>
             <img src="media/VH_pp.png" alt="" class="invisible VH">
             <img src="media/VF_pp.png" alt="" class="invisible VF">
@@ -259,7 +291,7 @@
             });
         </script>
 
-        <div class="section caracterleft C1" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterleft C1" id="johnny" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Johnny Silverhand</h2>
             <img src="media/Johnny_pp.png" alt="" class="invisible johnny">
             <p>
@@ -301,7 +333,7 @@
         </script>
 
 
-        <div class="section caracterright C2" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterright C2" id="jackie" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Jackie Welles</h2>
             <img src="media/jackie_pp.png" alt="" class="invisible jackie">
             <p>
@@ -342,7 +374,7 @@
             });
         </script>
 
-        <div class="section caracterleft C3" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterleft C3" id="judy" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Judy Alvarez</h2>
             <img src="media/judy_pp.png" alt="" class="invisible judy">
             <p>
@@ -382,7 +414,7 @@
             });
         </script>
 
-        <div class="section caracterright C4" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterright C4" id="viktor" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Viktor Vektor</h2>
             <img src="media/viktor_pp.png" alt="" class="invisible viktor">
             <p>
@@ -422,7 +454,7 @@
             });
         </script>
 
-        <div class="section caracterleft C5" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterleft C5" id="panam" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Panam Palmer</h2>
             <img src="media/panam_pp.png" alt="" class="invisible panam">
             <p>
@@ -462,7 +494,7 @@
             });
         </script>
 
-        <div class="section caracterright C6" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterright C6" id="kerry" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Kerry Eurodyne</h2>
             <img src="media/kerry_pp.png" alt="" class="invisible kerry">
             <p>
@@ -502,7 +534,7 @@
             });
         </script>
 
-        <div class="section caracterleft C7" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterleft C7" id="river" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>River Ward</h2>
             <img src="media/river_pp.png" alt="" class="invisible river">
             <p>
@@ -542,7 +574,7 @@
             });
         </script>
 
-        <div class="section caracterright C8" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterright C8" id="goro" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Goro Takemura</h2>
             <img src="media/goro_pp.png" alt="" class="invisible goro">
             <p>
@@ -583,7 +615,7 @@
             });
         </script>
 
-        <div class="section caracterleft C9" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterleft C9" id="alt" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Alt Cunningham</h2>
             <img src="media/alt_pp.png" alt="" class="invisible alt">
             <p>
@@ -623,7 +655,7 @@
             });
         </script>
 
-        <div class="section caracterright C10" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterright C10" id="delamain" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Delamain</h2>
             <img src="media/delamain_pp.png" alt="" class="invisible delamain">
             <p>
@@ -662,7 +694,7 @@
             });
         </script>
 
-        <div class="section caracterleft C11" style="background-image: url('media/Wallpaper1.jpg');">
+        <div class="section caracterleft C11" id="rogue" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Rogue</h2>
             <img src="media/rogue_pp.png" alt="" class="invisible rogue">
             <p>
