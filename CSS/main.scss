@@ -350,6 +350,7 @@ main {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  box-shadow: inset 0 100px 100px -10px rgba(0, 0, 0, 1);
 }
 
 .caracterV h2 {
@@ -357,6 +358,7 @@ main {
   top: 50px;
   left: 50%;
   font-size: 4em;
+  color: $blue;
 }
 
 .VH {
@@ -383,6 +385,8 @@ main {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  box-shadow: inset 0 100px 100px -10px rgba(0, 0, 0, 1),
+    0 -100px 100px -10px rgba(0, 0, 0, 1);
 }
 
 .caracterleft h2 {
@@ -390,6 +394,7 @@ main {
   top: 50px;
   left: 50%;
   font-size: 4em;
+  color: $blue;
 }
 
 .caracterleft img {
@@ -416,6 +421,8 @@ main {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  box-shadow: inset 0 100px 100px -10px rgba(0, 0, 0, 1),
+    0 -100px 100px -10px rgba(0, 0, 0, 1);
 }
 
 .caracterright h2 {
@@ -423,6 +430,7 @@ main {
   top: 50px;
   right: 50%;
   font-size: 4em;
+  color: $blue;
 }
 
 .caracterright img {
