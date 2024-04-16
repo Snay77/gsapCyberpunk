@@ -365,6 +365,244 @@
                 });
             });
         </script>
+
+        <div class="caracterright C6" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Kerry Eurodyne</h2>
+            <img src="media/kerry_pp.png" alt="" class="invisible kerry">
+            <p>
+                Musicien terriblement doué, rebelle incorrigible, célébrité, rockerboy de Night City... De nombreux
+                qualificatifs sont utilisés pour désigner Kerry, mais ce qui est certain, c'est qu'il est le Dieu du
+                Rock en Amérique. Dans le temps, il jouait de la guitare aux côtés de Johnny Silverhand dans le groupe
+                culte Samurai. Lorsque leurs chemins se sont séparés, Eurodyne s'est lancé dans une carrière solo qui,
+                bien qu'ayant connu des hauts et des bas, se porte encore très bien. Kerry est fier de ses racines
+                philippines, même si, pour une star de son niveau, il est particulièrement discret sur sa vie privée.
+                Malgré tous ses défauts, Night City est sa plus fidèle muse
+            </p>
+        </div>
+
+        <script>
+            // Jackie Welles
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageK = document.querySelector(".kerry");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageK, { x: "-250%" });
+                tl.to(imageK, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageK.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C6").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageK.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterleft C7" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>River Ward</h2>
+            <img src="media/river_pp.png" alt="" class="invisible river">
+            <p>
+                River Ward pensait qu'une fois devenu inspecteur du NCPD, la vie ne pourrait être que plus simple.
+                Malheureusement pour lui, à Night City, faire ce qui est bien est plus difficile que d'obtenir un simple
+                grade. Chaque jour, il est en proie à une lutte morale: soit il joue le jeu, soit il abandonne une part
+                de son âme. S'il s'autorisait à baisser sa garde ne serait-ce qu'une seule seconde, n'importe quel
+                criminel pourrait en profiter. Malgré cela, River se lève chaque matin pour aller travailler en
+                affichant une attitude positive. Peut-être que c'est sa façon à lui de supporter tout ça. Ou peut-être
+                qu'il ne sait tout simplement pas quoi faire d'autre.
+            </p>
+        </div>
+
+        <script>
+            // Judy Alvarez
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageR = document.querySelector(".river");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageR, { x: "250%" });
+                tl.to(imageR, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageR.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C7").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageR.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterright C8" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Goro Takemura</h2>
+            <img src="media/goro_pp.png" alt="" class="invisible goro">
+            <p>
+                Garde du corps unique de Saburo Arasaka, il a vraiment, vraiment merdé. Tout en obéissant aux ordres, il
+                n'a pu empêcher la mort de son maître, assassiné par son propre fils Yorinobu. Après le vol de la
+                Relique, Takemura a suivi la trace des voleurs et s'est retrouvé dans une décharge, où il a tué Dexter
+                DeShawn et sauvé V, unique témoin du crime commis par Yorinobu. Dans sa quête de vérité, Takemura est
+                devenu le fugitif le plus recherché par Arasaka, traqué par tous les agents de la corpo à Night City.
+                L'ancien garde du corps est guidé par un désir de vengeance qui restera inassouvi tant que le meurtrier
+                de Saburo n'aura pas été remis à la justice. Même si cela signifie qu'il doit travailler avec des
+                petites frappes comme V.
+            </p>
+        </div>
+
+        <script>
+            // Jackie Welles
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageG = document.querySelector(".goro");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageG, { x: "-250%" });
+                tl.to(imageG, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageG.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C8").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageG.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterleft C9" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Alt Cunningham</h2>
+            <img src="media/alt_pp.png" alt="" class="invisible alt">
+            <p>
+                Alt Cunningham. La meilleure netrunner de Night City, la plus puissante « entité » que l'on puisse
+                trouver des deux côtés du Mur noir, et la seule personne capable de remettre Johnny Silverhand à sa
+                place. C'est elle qui a créé le Tueur d'âmes. Lorsqu'il fut volé par Arasaka à des fins sinistres, Alt
+                n'eut d'autre choix que de fuir dans le cyberespace. Ses années d'existence au-delà du Mur noir ont tant
+                altéré sa conscience qu'elle tient désormais davantage de l'I.A. rebelle que de l'être humain. Son lien
+                avec Johnny est le seul élément qui la relie encore à sa vie passée. Et c'est précisément ce lien que
+                les Voodoo Boys ont décidé d'exploiter pour attirer Alt depuis l'autre côté du Mur noir.
+            </p>
+        </div>
+
+        <script>
+            // Judy Alvarez
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageA = document.querySelector(".alt");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageA, { x: "250%" });
+                tl.to(imageA, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageA.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C9").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageA.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterright C10" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Delamain</h2>
+            <img src="media/delamain_pp.png" alt="" class="invisible delamain">
+            <p>
+                Si jamais vous avez envie de laisser vos problèmes derrière vous, montez dans un taxi de luxe Delamain.
+                Delamain est le seul service de taxi à Night City géré par une intelligence artificielle, dont les
+                priorités sont la sécurité des passagers autant que leur confort. La personnalité particulière de
+                Delamain justifie à elle seule de voyager dans les véhicules de la compagnie. C'est aussi un excellent
+                partenaire commercial, car il s'attache à améliorer sans cesse la qualité de ses services grâce à une
+                gestion efficace et des technologies novatrices. <br>(Sponsorisé par Delamain Corp.)
+            </p>
+        </div>
+
+        <script>
+            // Jackie Welles
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageD = document.querySelector(".delamain");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageD, { x: "-250%" });
+                tl.to(imageD, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageD.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C10").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageD.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
+
+        <div class="caracterleft C11" style="background-image: url('media/Wallpaper1.jpg');">
+            <h2>Rogue</h2>
+            <img src="media/rogue_pp.png" alt="" class="invisible rogue">
+            <p>
+                Dans sa jeunesse, Rogue était une merc professionnelle. Aujourd'hui, elle est la reine des fixers. L'une
+                des dernières légendes vivantes de Night City. Contrairement à ses amis du bon vieux temps (AKA Johnny
+                Silverhand), Rogue ne se contente pas de se la couler douce: elle gère l'Afterlife, et donc la
+                quasi-totalité du réseau de mercs de Night City. Toute mission sérieuse doit d'abord obtenir son feu
+                vert, et la mission de V, la traque d'Anders Hellman, est très, très sérieuse
+            </p>
+        </div>
+
+        <script>
+            // Judy Alvarez
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const imageR = document.querySelector(".rogue");
+                const tl = gsap.timeline({ paused: true });
+
+                tl.set(imageR, { x: "250%" });
+                tl.to(imageR, {
+                    duration: 1.75, x: 0, onStart: function () {
+                        imageR.classList.remove('invisible');
+                    }
+                });
+
+                window.addEventListener("scroll", function () {
+                    const caracterVPosition = document.querySelector(".C11").getBoundingClientRect();
+                    const triggerPosition = window.innerHeight * 0.05;
+
+                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                        tl.play();
+                        imageR.classList.remove('invisible');
+                    }
+                });
+            });
+        </script>
     </div>
 
     </div>
