@@ -404,20 +404,16 @@ main {
 
 .VH {
   position: absolute;
-  top: 50%;
   left: 20px;
-  transform: translateY(-50%);
-  max-width: 90%;
-  height: auto;
+  bottom: 0;
+  max-height: 90%;
 }
 
 .VF {
   position: absolute;
-  top: 50%;
   right: 20px;
-  transform: translateY(-45%);
-  max-width: 45%;
-  height: auto;
+  bottom: 0;
+  max-height: 90%;
 }
 
 .caracterleft {
@@ -437,11 +433,9 @@ main {
 }
 .caracterleft img {
   position: absolute;
-  top: 60%;
   left: 20px;
-  transform: translateY(-50%);
-  max-width: 40%;
-  height: auto;
+  bottom: 0;
+  max-height: 90%;
 }
 .caracterleft p {
   position: absolute;
@@ -476,11 +470,9 @@ main {
 }
 .caracterright img {
   position: absolute;
-  top: 50%;
   right: 20px;
-  transform: translateY(-50%);
-  max-width: 40%;
-  height: auto;
+  bottom: 0;
+  max-height: 90%;
 }
 .caracterright p {
   position: absolute;
