@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +15,7 @@
     <div class="loader">
         <div class="loader-element">
             <p>Loading</p>
-            <img src="media/Loader.png" alt="">
+            <img src="media/Loader.png" alt="Barre de chargement quand le site se lance">
         </div>
         <div class="loader-bar">
             <div class="bar"></div>
@@ -40,21 +40,24 @@
         });
     </script>
 
-    <div id="content">
-        <section id="start">
-            <video autoplay muted loop id="landing-video">
-                <source src="media/Cyberpunk 2077 Wallpaper Engine.mp4" type="video/mp4">
-            </video>
+    <a tabindex="0" class="tab">
+        <div id="content">
+            <section id="start">
+                <video autoplay muted loop id="landing-video">
+                    <source src="media/Cyberpunk 2077 Wallpaper Engine.mp4" type="video/mp4">
+                </video>
 
-            <img id="logo" src="media/Logo.png" alt="">
+                <img id="logo" src="media/Logo.png"
+                    alt="Logo du jeu vidéo Cyberpunk 2077">
 
-            <a href="#carousel" id="button-start">
-                <img src="media/Start.png" alt="" id="image">
-                <span>Start</span>
-            </a>
-        </section>
+                <a href="#carousel" id="button-start">
+                    <img src="media/Start.png" alt="image qui encadre le text Start" id="image">
+                    <span>Start</span>
+                </a>
+            </section>
+    </a>
 
-
+    <a tabindex="0" class="tab">
         <section class="carousel" id="carousel">
             <main>
                 <ul class='slider'>
@@ -138,162 +141,168 @@
                 </nav>
             </main>
         </section>
+    </a>
 
-        <script>
-            // Carousel
+    <script>
+        // Carousel
 
-            const slider = document.querySelector('.slider');
+        const slider = document.querySelector('.slider');
 
-            function activate(e) {
-                const items = document.querySelectorAll('.item');
-                e.target.matches('.next') && slider.append(items[0])
-                e.target.matches('.prev') && slider.prepend(items[items.length - 1]);
+        function activate(e) {
+            const items = document.querySelectorAll('.item');
+            e.target.matches('.next') && slider.append(items[0])
+            e.target.matches('.prev') && slider.prepend(items[items.length - 1]);
+        }
+
+        document.addEventListener('click', activate, false);
+    </script>
+
+    <div class="images-container">
+        <img src="media/BlueBox.png" alt="" class="image" title="V" data-link="#v">
+        <img src="media/RedBox.png" alt="" class="image" title="Johnny Silverhand" data-link="#johnny">
+        <img src="media/RedBox.png" alt="" class="image" title="Jackie Welles" data-link="#jackie">
+        <img src="media/RedBox.png" alt="" class="image" title="Judy Alvarez" data-link="#judy">
+        <img src="media/RedBox.png" alt="" class="image" title="Viktor Vektor" data-link="#viktor">
+        <img src="media/RedBox.png" alt="" class="image" title="Panam Palmer" data-link="#panam">
+        <img src="media/RedBox.png" alt="" class="image" title="Kerry Eurodyne" data-link="#kerry">
+        <img src="media/RedBox.png" alt="" class="image" title="River Ward" data-link="#river">
+        <img src="media/RedBox.png" alt="" class="image" title="Goro Takemura" data-link="#goro">
+        <img src="media/RedBox.png" alt="" class="image" title="Alt Cunningham" data-link="#alt">
+        <img src="media/RedBox.png" alt="" class="image" title="Delamain" data-link="#delamain">
+        <img src="media/RedBox.png" alt="" class="image" title="Rogue" data-link="#rogue">
+    </div>
+
+    <script>
+        var images = document.querySelectorAll('.image');
+
+        images.forEach(function (image) {
+            image.addEventListener('mouseover', function (event) {
+                var name = image.getAttribute('title');
+                var link = image.getAttribute('data-link');
+                var nameElement = document.createElement('span');
+                nameElement.textContent = name;
+                nameElement.classList.add('image-name');
+                nameElement.style.position = 'absolute';
+                nameElement.style.left = event.pageX + 'px';
+                nameElement.style.top = event.pageY + 'px';
+                document.body.appendChild(nameElement);
+            });
+
+            image.addEventListener('mouseleave', function () {
+                var nameElement = document.querySelector('.image-name');
+                if (nameElement) {
+                    nameElement.remove();
+                }
+            });
+
+            image.addEventListener('click', function () {
+                var link = image.getAttribute('data-link');
+                if (link) {
+                    window.location.href = link;
+                }
+            });
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var scrollPosition = window.scrollY;
+
+            var caracterV = document.querySelector('.caracterV');
+            var caracterVTop = caracterV.offsetTop;
+
+            var sections = document.querySelectorAll('.section');
+            var currentSection = null;
+            sections.forEach(function (section) {
+                var sectionTop = section.offsetTop;
+                var sectionBottom = sectionTop + section.clientHeight;
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    currentSection = section;
+                }
+            });
+
+            var currentIndex = Array.from(sections).indexOf(currentSection);
+
+            for (var i = 0; i <= currentIndex; i++) {
+                sections[i].classList.add('visited');
             }
 
-            document.addEventListener('click', activate, false);
-        </script>
+            for (var j = currentIndex + 1; j < sections.length; j++) {
+                sections[j].classList.remove('visited');
+            }
 
-        <div class="images-container">
-            <img src="media/BlueBox.png" alt="" class="image" title="V" data-link="#v">
-            <img src="media/RedBox.png" alt="" class="image" title="Johnny Silverhand" data-link="#johnny">
-            <img src="media/RedBox.png" alt="" class="image" title="Jackie Welles" data-link="#jackie">
-            <img src="media/RedBox.png" alt="" class="image" title="Judy Alvarez" data-link="#judy">
-            <img src="media/RedBox.png" alt="" class="image" title="Viktor Vektor" data-link="#viktor">
-            <img src="media/RedBox.png" alt="" class="image" title="Panam Palmer" data-link="#panam">
-            <img src="media/RedBox.png" alt="" class="image" title="Kerry Eurodyne" data-link="#kerry">
-            <img src="media/RedBox.png" alt="" class="image" title="River Ward" data-link="#river">
-            <img src="media/RedBox.png" alt="" class="image" title="Goro Takemura" data-link="#goro">
-            <img src="media/RedBox.png" alt="" class="image" title="Alt Cunningham" data-link="#alt">
-            <img src="media/RedBox.png" alt="" class="image" title="Delamain" data-link="#delamain">
-            <img src="media/RedBox.png" alt="" class="image" title="Rogue" data-link="#rogue">
-        </div>
-
-        <script>
             var images = document.querySelectorAll('.image');
-
-            images.forEach(function (image) {
-                image.addEventListener('mouseover', function (event) {
-                    var name = image.getAttribute('title');
-                    var link = image.getAttribute('data-link');
-                    var nameElement = document.createElement('span');
-                    nameElement.textContent = name;
-                    nameElement.classList.add('image-name');
-                    nameElement.style.position = 'absolute';
-                    nameElement.style.left = event.pageX + 'px';
-                    nameElement.style.top = event.pageY + 'px';
-                    document.body.appendChild(nameElement);
+            if (scrollPosition > caracterVTop) {
+                images.forEach(function (image) {
+                    image.style.display = 'block';
                 });
-
-                image.addEventListener('mouseleave', function () {
-                    var nameElement = document.querySelector('.image-name');
-                    if (nameElement) {
-                        nameElement.remove();
-                    }
+            } else {
+                images.forEach(function (image) {
+                    image.style.display = 'none';
                 });
+            }
 
-                image.addEventListener('click', function () {
-                    var link = image.getAttribute('data-link');
-                    if (link) {
-                        window.location.href = link;
-                    }
-                });
-            });
-        </script>
-
-        <script>
-            window.addEventListener('scroll', function () {
-                var scrollPosition = window.scrollY;
-
-                var caracterV = document.querySelector('.caracterV');
-                var caracterVTop = caracterV.offsetTop;
-
-                var sections = document.querySelectorAll('.section');
-                var currentSection = null;
-                sections.forEach(function (section) {
-                    var sectionTop = section.offsetTop;
-                    var sectionBottom = sectionTop + section.clientHeight;
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        currentSection = section;
-                    }
-                });
-
-                var currentIndex = Array.from(sections).indexOf(currentSection);
-
-                for (var i = 0; i <= currentIndex; i++) {
-                    sections[i].classList.add('visited');
-                }
-
-                for (var j = currentIndex + 1; j < sections.length; j++) {
-                    sections[j].classList.remove('visited');
-                }
-
-                var images = document.querySelectorAll('.image');
-                if (scrollPosition > caracterVTop) {
-                    images.forEach(function (image) {
-                        image.style.display = 'block';
-                    });
+            images.forEach(function (image, index) {
+                if (index === currentIndex) {
+                    image.src = 'media/BlueBox.png';
                 } else {
-                    images.forEach(function (image) {
-                        image.style.display = 'none';
-                    });
+                    image.src = 'media/RedBox.png';
                 }
-
-                images.forEach(function (image, index) {
-                    if (index === currentIndex) {
-                        image.src = 'media/BlueBox.png';
-                    } else {
-                        image.src = 'media/RedBox.png';
-                    }
-                });
-
-                var visitedSections = document.querySelectorAll('.visited');
-                visitedSections.forEach(function (section, index) {
-                    var visitedIndex = Array.from(sections).indexOf(section);
-                    images[visitedIndex].src = 'media/BlueBox.png';
-                });
             });
-        </script>
 
+            var visitedSections = document.querySelectorAll('.visited');
+            visitedSections.forEach(function (section, index) {
+                var visitedIndex = Array.from(sections).indexOf(section);
+                images[visitedIndex].src = 'media/BlueBox.png';
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterV" id="v">
             <h2>V</h2>
-            <img src="media/VH_pp.png" alt="" class="invisible VH">
-            <img src="media/VF_pp.png" alt="" class="invisible VF">
+            <img src="media/VH_pp.png" alt="V (homme) personnage principal du jeu vidéo Cyberpunk 2077"
+                class="invisible VH">
+            <img src="media/VF_pp.png" alt="V (femme) personnage principal du jeu vidéo Cyberpunk 2077"
+                class="invisible VF">
         </div>
+    </a>
+    <script>
+        // V
 
-        <script>
-            // V
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageVH = document.querySelector(".VH");
+            const imageVF = document.querySelector(".VF");
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageVH = document.querySelector(".VH");
-                const imageVF = document.querySelector(".VF");
+            const tl = gsap.timeline({ paused: true });
 
-                const tl = gsap.timeline({ paused: true });
-
-                tl.set(imageVH, { x: "50%" });
-                tl.set(imageVF, { x: "-50%" });
-                tl.to([imageVH, imageVF], {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageVH.classList.remove('invisible');
-                        imageVF.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".caracterV").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageVH.classList.remove('invisible');
-                        imageVF.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageVH, { x: "50%" });
+            tl.set(imageVF, { x: "-50%" });
+            tl.to([imageVH, imageVF], {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageVH.classList.remove('invisible');
+                    imageVF.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".caracterV").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageVH.classList.remove('invisible');
+                    imageVF.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterleft C1" id="johnny" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Johnny Silverhand</h2>
-            <img src="media/Johnny_pp.png" alt="" class="invisible johnny">
+            <img src="media/Johnny_pp.png" alt="Johnny Silverhand personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible johnny">
             <p>
                 Il semble que devenir une légende du rock sans les excès habituels - sexe, drogues, dépression,
                 problèmes juridiques et relations toxiques - soit possible. Johnny Silverhand l'a fait à sa manière
@@ -305,37 +314,38 @@
                 un véritable enfer, bien loin de l'agréable alternative qu'est la prison du cyberespace.
             </p>
         </div>
+    </a>
+    <script>
+        // Jhonny
 
-        <script>
-            // Jhonny
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageJ = document.querySelector(".johnny");
+            const tl = gsap.timeline({ paused: true });
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageJ = document.querySelector(".johnny");
-                const tl = gsap.timeline({ paused: true });
-
-                tl.set(imageJ, { x: "250%" });
-                tl.to(imageJ, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageJ.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C1").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageJ.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageJ, { x: "250%" });
+            tl.to(imageJ, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageJ.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C1").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
 
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageJ.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterright C2" id="jackie" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Jackie Welles</h2>
-            <img src="media/jackie_pp.png" alt="" class="invisible jackie">
+            <img src="media/jackie_pp.png" alt="Jackie Welles personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible jackie">
             <p>
                 Fils d'Heywood et fier de l'être, Jackie est également le fils de Mama Welles, ce dont il est encore
                 plus fier. Il est têtu, et quand il veut quelque chose, il n'arrête pas (et n'arrête pas d'en parler)
@@ -347,36 +357,39 @@
                 d'eddies au passage.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Jackie Welles
+    <script>
+        // Jackie Welles
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageJ = document.querySelector(".jackie");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageJ = document.querySelector(".jackie");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageJ, { x: "-250%" });
-                tl.to(imageJ, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageJ.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C2").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageJ.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageJ, { x: "-250%" });
+            tl.to(imageJ, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageJ.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C2").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageJ.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterleft C3" id="judy" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Judy Alvarez</h2>
-            <img src="media/judy_pp.png" alt="" class="invisible judy">
+            <img src="media/judy_pp.png" alt="Judy Alvarez personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible judy">
             <p>
                 L'une des éditrices de danse sensorielle les plus talentueuses du marché, doublée d'une techie
                 compétente. Si elle le voulait, elle pourrait se faire embaucher par n'importe quel studio corpo de
@@ -387,36 +400,39 @@
                 aussi sa plus grande vertu.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Judy Alvarez
+    <script>
+        // Judy Alvarez
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageJ = document.querySelector(".judy");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageJ = document.querySelector(".judy");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageJ, { x: "250%" });
-                tl.to(imageJ, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageJ.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C3").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageJ.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageJ, { x: "250%" });
+            tl.to(imageJ, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageJ.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C3").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageJ.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterright C4" id="viktor" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Viktor Vektor</h2>
-            <img src="media/viktor_pp.png" alt="" class="invisible viktor">
+            <img src="media/viktor_pp.png" alt="Viktor Vektor personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible viktor">
             <p>
                 Quand on veut du chrome de qualité, on va chez Vik. Les concurrents ont peut-être un intérieur tenant
                 autant du vaisseau spatial que de la chambre zen, mais sa clinique de charcudoc va à l'essentiel et ne
@@ -427,36 +443,39 @@
                 Devils.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Jackie Welles
+    <script>
+        // Jackie Welles
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageV = document.querySelector(".viktor");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageV = document.querySelector(".viktor");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageV, { x: "-250%" });
-                tl.to(imageV, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageV.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C4").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageV.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageV, { x: "-250%" });
+            tl.to(imageV, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageV.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C4").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageV.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterleft C5" id="panam" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Panam Palmer</h2>
-            <img src="media/panam_pp.png" alt="" class="invisible panam">
+            <img src="media/panam_pp.png" alt="Panam Palmer personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible panam">
             <p>
                 Panam est une nomade, même s'il serait plus juste aujourd'hui de dire « ex-nomade ». Suite à un
                 désaccord avec Saul, le chef de la famille, elle a quitté la nation Aldecaldos pour aller tenter sa
@@ -467,36 +486,39 @@
                 d'un avenir meilleur.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Judy Alvarez
+    <script>
+        // Judy Alvarez
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageP = document.querySelector(".panam");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageP = document.querySelector(".panam");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageP, { x: "250%" });
-                tl.to(imageP, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageP.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C5").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageP.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageP, { x: "250%" });
+            tl.to(imageP, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageP.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C5").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageP.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterright C6" id="kerry" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Kerry Eurodyne</h2>
-            <img src="media/kerry_pp.png" alt="" class="invisible kerry">
+            <img src="media/kerry_pp.png" alt="Kerry Eurodyne personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible kerry">
             <p>
                 Musicien terriblement doué, rebelle incorrigible, célébrité, rockerboy de Night City... De nombreux
                 qualificatifs sont utilisés pour désigner Kerry, mais ce qui est certain, c'est qu'il est le Dieu du
@@ -507,36 +529,39 @@
                 Malgré tous ses défauts, Night City est sa plus fidèle muse.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Jackie Welles
+    <script>
+        // Jackie Welles
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageK = document.querySelector(".kerry");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageK = document.querySelector(".kerry");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageK, { x: "-250%" });
-                tl.to(imageK, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageK.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C6").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageK.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageK, { x: "-250%" });
+            tl.to(imageK, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageK.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C6").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageK.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterleft C7" id="river" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>River Ward</h2>
-            <img src="media/river_pp.png" alt="" class="invisible river">
+            <img src="media/river_pp.png" alt="River Ward personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible river">
             <p>
                 River Ward pensait qu'une fois devenu inspecteur du NCPD, la vie ne pourrait être que plus simple.
                 Malheureusement pour lui, à Night City, faire ce qui est bien est plus difficile que d'obtenir un simple
@@ -547,36 +572,39 @@
                 qu'il ne sait tout simplement pas quoi faire d'autre.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Judy Alvarez
+    <script>
+        // Judy Alvarez
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageR = document.querySelector(".river");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageR = document.querySelector(".river");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageR, { x: "250%" });
-                tl.to(imageR, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageR.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C7").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageR.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageR, { x: "250%" });
+            tl.to(imageR, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageR.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C7").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageR.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterright C8" id="goro" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Goro Takemura</h2>
-            <img src="media/goro_pp.png" alt="" class="invisible goro">
+            <img src="media/goro_pp.png" alt="Goro Takemura personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible goro">
             <p>
                 Garde du corps unique de Saburo Arasaka, il a vraiment, vraiment merdé. Tout en obéissant aux ordres, il
                 n'a pu empêcher la mort de son maître, assassiné par son propre fils Yorinobu. Après le vol de la
@@ -588,36 +616,39 @@
                 petites frappes comme V.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Jackie Welles
+    <script>
+        // Jackie Welles
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageG = document.querySelector(".goro");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageG = document.querySelector(".goro");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageG, { x: "-250%" });
-                tl.to(imageG, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageG.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C8").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageG.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageG, { x: "-250%" });
+            tl.to(imageG, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageG.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C8").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageG.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterleft C9" id="alt" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Alt Cunningham</h2>
-            <img src="media/alt_pp.png" alt="" class="invisible alt">
+            <img src="media/alt_pp.png" alt="Alt Cunningham personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible alt">
             <p>
                 Alt Cunningham. La meilleure netrunner de Night City, la plus puissante « entité » que l'on puisse
                 trouver des deux côtés du Mur noir, et la seule personne capable de remettre Johnny Silverhand à sa
@@ -628,75 +659,81 @@
                 les Voodoo Boys ont décidé d'exploiter pour attirer Alt depuis l'autre côté du Mur noir.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Judy Alvarez
+    <script>
+        // Judy Alvarez
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageA = document.querySelector(".alt");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageA = document.querySelector(".alt");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageA, { x: "250%" });
-                tl.to(imageA, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageA.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C9").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageA.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageA, { x: "250%" });
+            tl.to(imageA, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageA.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C9").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageA.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterright C10" id="delamain" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Delamain</h2>
-            <img src="media/delamain_pp.png" alt="" class="invisible delamain">
+            <img src="media/delamain_pp.png" alt="Delamain personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible delamain">
             <p>
                 Si jamais vous avez envie de laisser vos problèmes derrière vous, montez dans un taxi de luxe Delamain.
                 Delamain est le seul service de taxi à Night City géré par une intelligence artificielle, dont les
                 priorités sont la sécurité des passagers autant que leur confort. La personnalité particulière de
                 Delamain justifie à elle seule de voyager dans les véhicules de la compagnie. C'est aussi un excellent
                 partenaire commercial, car il s'attache à améliorer sans cesse la qualité de ses services grâce à une
-                gestion efficace et des technologies novatrices. <br/><br/>(Sponsorisé par Delamain Corp.)
+                gestion efficace et des technologies novatrices. <br /><br />(Sponsorisé par Delamain Corp.)
             </p>
         </div>
+    </a>
 
-        <script>
-            // Jackie Welles
+    <script>
+        // Jackie Welles
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageD = document.querySelector(".delamain");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageD = document.querySelector(".delamain");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageD, { x: "-250%" });
-                tl.to(imageD, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageD.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C10").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageD.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageD, { x: "-250%" });
+            tl.to(imageD, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageD.classList.remove('invisible');
+                }
             });
-        </script>
 
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C10").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageD.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
+
+    <a tabindex="0" class="tab">
         <div class="section caracterleft C11" id="rogue" style="background-image: url('media/Wallpaper1.jpg');">
             <h2>Rogue</h2>
-            <img src="media/rogue_pp.png" alt="" class="invisible rogue">
+            <img src="media/rogue_pp.png" alt="Rogue personnage clé du jeu vidéo Cyberpunk 2077"
+                class="invisible rogue">
             <p>
                 Dans sa jeunesse, Rogue était une merc professionnelle. Aujourd'hui, elle est la reine des fixers. L'une
                 des dernières légendes vivantes de Night City. Contrairement à ses amis du bon vieux temps (AKA Johnny
@@ -705,32 +742,33 @@
                 vert, et la mission de V, la traque d'Anders Hellman, est très, très sérieuse.
             </p>
         </div>
+    </a>
 
-        <script>
-            // Judy Alvarez
+    <script>
+        // Judy Alvarez
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const imageR = document.querySelector(".rogue");
-                const tl = gsap.timeline({ paused: true });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imageR = document.querySelector(".rogue");
+            const tl = gsap.timeline({ paused: true });
 
-                tl.set(imageR, { x: "250%" });
-                tl.to(imageR, {
-                    duration: 1.75, x: 0, onStart: function () {
-                        imageR.classList.remove('invisible');
-                    }
-                });
-
-                window.addEventListener("scroll", function () {
-                    const caracterVPosition = document.querySelector(".C11").getBoundingClientRect();
-                    const triggerPosition = window.innerHeight * 0.05;
-
-                    if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
-                        tl.play();
-                        imageR.classList.remove('invisible');
-                    }
-                });
+            tl.set(imageR, { x: "250%" });
+            tl.to(imageR, {
+                duration: 1.75, x: 0, onStart: function () {
+                    imageR.classList.remove('invisible');
+                }
             });
-        </script>
+
+            window.addEventListener("scroll", function () {
+                const caracterVPosition = document.querySelector(".C11").getBoundingClientRect();
+                const triggerPosition = window.innerHeight * 0.05;
+
+                if (caracterVPosition.top < window.innerHeight - triggerPosition && caracterVPosition.bottom >= 0) {
+                    tl.play();
+                    imageR.classList.remove('invisible');
+                }
+            });
+        });
+    </script>
     </div>
 
     </div>
